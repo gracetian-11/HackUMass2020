@@ -1,4 +1,4 @@
-# HackUMass2020
+# ReSpend
 
 A receipt tracker and spending habits app for iOS that allows users to better understand how they're spending their money.
 
@@ -9,7 +9,7 @@ Go to some random directory and do:
 
 ```python
 git clone <this repo>
-cd HackUMass2020
+cd ReSpend
 python3 -m venv env
 source env/bin/activate
 python3 -m pip install -r requirements.txt
