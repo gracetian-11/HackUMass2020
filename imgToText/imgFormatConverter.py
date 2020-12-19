@@ -1,9 +1,12 @@
 from PIL import Image
 import base64
-import img2pdf
+import os
 
 # convert image file format to match what we need, PDF, TIFF or GIF
 class imgFormatConverter:
+    '''
+    Use getter and setter to set input and output
+    '''
     def __init__(self):
         self.input = None
         self.output = None
@@ -21,11 +24,19 @@ class imgFormatConverter:
     def get_input(self):
         return self.input
 
+    def get_output(self):
+        return self.output
+
     def to_pdf(self):
         print("input image format: {}".format(self.input.format))
-        self.output = self.input.convert('RGB')
+        pdf = self.input.convert('RGB')
          
-        self.output.save('{}.pdf'.format(self.input.filename.split(".")[0]))
+        pdf.save('{}.pdf'.format(self.input.filename.split(".")[0]))
+        
+        pdf = open('{}.pdf'.format(self.input.filename.split(".")[0]))
+        self.output = pdf
+        pdf.close()
+        os.remove('{}.pdf'.format(self.input.filename.split(".")[0]))
     
     # def to_tiff(self):
 
