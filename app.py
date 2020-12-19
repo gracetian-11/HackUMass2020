@@ -1,12 +1,14 @@
 from flask import Flask
-from datastax_astra.py import connect
+from datastax_astra import connect
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def hello():
     connect()
     return "Hello World!"
 
-if __name__ == '__main__':
-    app.run()
+
+if __name__ == "__main__":
+    app.run(debug=True)
