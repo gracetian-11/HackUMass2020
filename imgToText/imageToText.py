@@ -9,7 +9,7 @@ image_path = "test_r1.jpg"
 
 
 class ImageToText:
-    def __init__(self, input_img_path=None, imput_img=None, local_file=True):
+    def __init__(self, input_img_path=None, input_img=None, local_file=True):
         self.image = None
         if local_file:
             self.set_image_local(input_img_path)
