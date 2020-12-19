@@ -16,6 +16,7 @@ class ImageToText:
         else:
             self.set_image(input_img)
         self.texts = []
+        self.set_client()
 
     def get_image(self):
         return self.image
@@ -30,26 +31,34 @@ class ImageToText:
         self.image = image
 
     # for directly loading image data
-    def set_image(self, img):
-        self.image = vision.Image(content=img)
+    def set_image_uri(self, img_uri):
+        self.image = vision.Image()
+        self.image.source.image_uri = img_uri
 
-    # detect text from image
-    def detect_text(self):
+    # set image to the base-64 string img_b64
+    def set_image_base64(self, img_b64: str) -> None:
+        """TODO: yeah this."""
 
+    def set_client(self):
         # setup credential and create a vision client
         # TODO: make sure to update this to match the path of gcp credential file
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hackumass2020-e3653d7fe8eb.json"
 
-        client = vision.ImageAnnotatorClient()
+        self.client = vision.ImageAnnotatorClient()
 
-        # more general detection information of each letter and its xy positions in the image
+    # detect text from image
+    def detect_text(self):
+
+        # more general detection of each letter and its xy positions in the image
         # The JSON including the entire extracted string, as well as individual words, and their bounding boxes.
         # response = client.text_detection(image=image) #uncomment to use
 
         # ====== this seems to work better with receipts, since it recognize line and spacing better.
         # Optimized for dense text and documents.
         # The JSON includes page, block, paragraph, word, and break information.
-        response = client.document_text_detection(image=self.image)  # uncomment to use
+        response = self.client.document_text_detection(
+            image=self.image
+        )  # uncomment to use
 
         # display the text detected.
         # print("Texts:")
@@ -92,7 +101,7 @@ class ImageToText:
         pass
 
 
-text_parse = ImageToText(image_path)
+text_parse = ImageToText(input_img_path=image_path, local_file=True)
 text_parse.detect_text()
 text_parse.get_text_all()
 
