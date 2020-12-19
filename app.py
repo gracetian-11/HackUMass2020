@@ -1,9 +1,11 @@
 from flask import Flask
-app = Flask(__name__)
+from datastax_astra.py import connect
 
+app = Flask(__name__)
 
 @app.route('/')
 def hello():
+    connect()
     return "Hello World!"
 
 if __name__ == '__main__':

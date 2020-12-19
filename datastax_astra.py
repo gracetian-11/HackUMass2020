@@ -1,4 +1,20 @@
-// connection to datastax astra database
+# connection to datastax astra database
+
+# food_items stores food item and its corresponding info
+# food_items:
+#     item text, 
+#     category text, 
+#     price double, 
+#     units double, 
+#     receipt_id int, 
+#     summary text, 
+#     PRIMARY KEY (category)
+
+# receipts stores images of user's receipts as blobs and assigns each one a uniqueid
+# receipts:
+#     receipt blob, 
+#     id int,
+#     PRIMARY KEY (id) 
 
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
