@@ -1,6 +1,6 @@
-from flask import Flask, url_for, redirect, session
+from flask import Flask, url_for, redirect
 from authlib.integrations.flask_client import OAuth
-from datastax_astra import connect
+from datastax_astra import connect, insert_user
 from flask import Flask
 from datastax_astra import connect, insert_receipt, insert_food
 import datetime
@@ -25,11 +25,7 @@ google = oauth.register(
 @app.route("/")
 def hello():
     connect()
-    name = session.get("name", None)
-    return f"Hello {name}"
-
-
-user_info = ""
+    return f"Hello"
 
 
 @app.route("/login")
@@ -46,19 +42,21 @@ def authorize():
     """
     client = oauth.create_client("google")
     token = client.authorize_access_token()
-    global user_info
     user_info = client.get("userinfo").json()
-    session["email"] = user_info["email"]
-    session["name"] = user_info["name"]
+    insert_user(
+        id=user_info["id"],
+        first_name=user_info["given_name"],
+        last_name=user_info["family_name"],
+        profile_pic=user_info["picture"],
+    )
     print(user_info)
+
     return redirect("/")
 
 
 @app.route("/logout")
 def logout():
     """Delete user data."""
-    for key in list(session.keys()):
-        session.pop(key)
     return redirect("/")
 
 
