@@ -27,9 +27,9 @@ def connect():
 def insert_receipt(img, id, vendor, total_spent, user_id):
     session.execute(
         """
-    INSERT INTO receipts (receipt, id, vendor, total_spent)
-    VALUES (%s, %s, %s, %s)
-    """,
+        INSERT INTO receipts (receipt, id, vendor, total_spent)
+        VALUES (%s, %s, %s, %s)
+        """,
         (img, id, vendor, total_spent, user_id),
     )
 
@@ -45,24 +45,25 @@ def insert_receipt(img, id, vendor, total_spent, user_id):
 def insert_food(item, category, total_spent, units, receipt_id, user_id):
     session.execute(
         """
-    INSERT INTO food_items (item, category, total_spent, units, receipt_id)
-    VALUES (%s, %s, %s, %s, %s)
-    """,
+        INSERT INTO food_items (item, category, total_spent, units, receipt_id)
+        VALUES (%s, %s, %s, %s, %s)
+        """,
         (item, category, total_spent, units, receipt_id, user_id),
     )
 
 
-# user_info: stores user information
-#     id          int,
-#     first_name  text,
-#     last_name   text,
+# users: stores user information
+#     first text, 
+#     last text,
 #     profile_pic text,
-#     PRIMARY KEY (category)
+#     user_id text,
+#     PRIMARY KEY (user_id) 
+# );
 def insert_user(id, first_name, last_name, profile_pic):
     session.execute(
         """
-    INSERT INTO food_items (item, category, total_spent, units, receipt_id)
-    VALUES (%s, %s, %s, %s, %s)
-    """,
-        (item, category, total_spent, units, receipt_id),
+        INSERT INTO users (id, first, last, profile_pic, user_id)
+        VALUES (%s, %s, %s, %s, %s)
+        """,
+        (id, first_name, last_name, profile_pic),
     )
