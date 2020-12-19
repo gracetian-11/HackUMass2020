@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hackumass2020",
+  "private_key_id": "e3653d7fe8ebaa86749be2863f0ff663251f8df2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuW3ZO3Aggm/TK\nPNnHABX/tsWBP8BnmDRjiymZJ9i7TyuxQu2asxaHoJjPHx9ZXnZX+HKPjZG9PB1B\nhfolEzXuhGVl2P2QlGWCBy6FLU+LHel+pol4vGWP/cHHVbHaPdWuWPrWDmxatB6h\nEiqowoXLbrfr97T2ya8JmkIIGFU0Ux4wJP0eNXi1yGNG78+d389iCKIXFxcHy+Ba\ngSycAAWpOiU6QZBtHTDnMta749zd76WzaL76uRgDNEpTKSoLmMkgbMMQhi7mxy6u\nJzOHECmJ/ajkNfNPNVcnvqtf9BzmGOOtFzXMUdBAMPkGVF0J9OIwHN+XGA0yKC5n\n7ulQRhKZAgMBAAECggEAAdLyxLhboUP8+v1bek/wmLDaDJi049UfncDVexu6pIht\nv4zzA7+dqYs2GFIJbFBQRyD2pP2ZHi2TI33OpCeUeRt9rxFmrEFtLEjP4L2TgFic\nTHla5Qd9hqb/VyZmvxfqlKz0sok4l3fl2SG9IN3DzzNV2ynsMoxPPBMpOuVg16tP\nOdBdl4qtaogr/c9ejaV6mQnWaPhE1I3evRQWxdpw5ddoyU2ZO5DDOj1sA8H1sS4u\n6vcQxbBYYyaVl5jmHMxFhuq2OdQEUOZoxtFexpKunTbAn2q/cQpfzd1veQIrfQEk\nzg+Bjx0mYX2jfbEybJWK1kRN1SrUsucb+epPNGAsAQKBgQDYiGR+J4K5Aws6IvvI\ncVpJ+9zugifWwln1RgK0GIYlGJbAPXI+ElFxgS4TgoSLA8GqkqaXH+AB9HFwlim6\nLV7OewjqQ6O4Kzbw0fjGlghF4OO/m88IEDXpkXM4ZEywrdHLv/vFu8HV3MW33OFs\n90B7LZLWVtJiRIRHd8E45y7smQKBgQDOIx+t5iDgBm0BkVQ2zVkW8t7DFTHKF5pg\nE9oFQ4hs/PeZlUbSAbeRhhMR3NjxtHXSesPvHG1+h2CSOCPwDfvf7njnTsLOFYG4\nV1GwgbIjrsdRwYJgQ21esglJPMjGm97htUaSu2QesCuchPP+mNhHBdjZ7zLLcjZs\naqM8bhIWAQKBgQDC8PhYQ0YDPuRKsNgxOyvoU6Ix8GfhhxPqJ9+jODj9CMgfxrIl\ng+Ri5cQPuH+PkBA5etIUWJQZ7nJ6xBZJETO7fTUng0HQOse5w6/PSZ+lGbSw+ptH\nTSDcaSBscpBAuBya7PrEqCb4XUx8HZWtvmQFAaCi64N5COp2VTBWBHxQcQKBgE+l\njpX4dvdYREH4zxslmKifSqcBx20YVZON2A10nH/P9jMnVGfMNgtKTI/4TvKFEYkz\n2gTHbR8YW53jhy83l/xb/ecRrX9HHAoH4w5Z7mSPIYBbTm63XsjZ7XCYxdLHYwS+\nr/f9459f3lnpnQTgNaCrh7AdFfk5tgGJ6mxs8xwBAoGANYrDQNbuhPFUUrHsmQYs\nmFTGckv/ARUK9vsp+jmOtbVu6CzQnVOCeBl3ucBWFSmNFVx7f8w81YSeSr2AszRZ\nQ96M0eEh+IGxkFzHcI+9zDN2ykFSafqm2PIf3vBJo+g6A2uxZygZYuyUvb0bRMED\ng4tQXewGDEpY+dWXKlLa2O0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cwh-hackumass2020@hackumass2020.iam.gserviceaccount.com",
+  "client_id": "110537386505474013161",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cwh-hackumass2020%40hackumass2020.iam.gserviceaccount.com"
+}
