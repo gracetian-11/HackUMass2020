@@ -1,4 +1,5 @@
-# stupid way to handle embedded repos
+# ignore the python venv directory
+env/
 
 # config files, temporary generated files
 .ipynb_checkpoints/
