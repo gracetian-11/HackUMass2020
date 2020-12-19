@@ -88,7 +88,7 @@ class image_to_text:
     def get_text_single(self):
         pass
 
-text_parse = image_to_text(image_path)
+text_parse = image_to_text(input_img_path = image_path, local_file=True)
 text_parse.detect_text()
 text_parse.get_text_all()
 
