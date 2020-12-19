@@ -25,7 +25,7 @@ class imgFormatConverter:
         print("input image format: {}".format(self.input.format))
         self.output = self.input.convert('RGB')
          
-        self.output.save('{}.pdf'.format(self.input.filename))
+        self.output.save('{}.pdf'.format(self.input.filename.split(".")[0]))
     
     # def to_tiff(self):
 
