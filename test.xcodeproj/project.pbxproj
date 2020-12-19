@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D470DF0D258D2C090018FB5E /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470DF0C258D2C090018FB5E /* RatingControl.swift */; };
+		D470DF35258D84760018FB5E /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470DF34258D84760018FB5E /* PieChartView.swift */; };
 		D49043C9258C598C0077F596 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49043C8258C598C0077F596 /* AppDelegate.swift */; };
 		D49043CB258C598C0077F596 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49043CA258C598C0077F596 /* SceneDelegate.swift */; };
 		D49043CD258C598C0077F596 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49043CC258C598C0077F596 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D470DF0C258D2C090018FB5E /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		D470DF34258D84760018FB5E /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		D49043C5258C598C0077F596 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49043C8258C598C0077F596 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D49043CA258C598C0077F596 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 				D49043C8258C598C0077F596 /* AppDelegate.swift */,
 				D49043CA258C598C0077F596 /* SceneDelegate.swift */,
 				D49043CC258C598C0077F596 /* ViewController.swift */,
+				D470DF0C258D2C090018FB5E /* RatingControl.swift */,
+				D470DF34258D84760018FB5E /* PieChartView.swift */,
 				D49043CE258C598C0077F596 /* Main.storyboard */,
 				D49043D1258C59930077F596 /* Assets.xcassets */,
 				D49043D3258C59930077F596 /* LaunchScreen.storyboard */,
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D470DF0D258D2C090018FB5E /* RatingControl.swift in Sources */,
+				D470DF35258D84760018FB5E /* PieChartView.swift in Sources */,
 				D49043CD258C598C0077F596 /* ViewController.swift in Sources */,
 				D49043C9258C598C0077F596 /* AppDelegate.swift in Sources */,
 				D49043CB258C598C0077F596 /* SceneDelegate.swift in Sources */,
