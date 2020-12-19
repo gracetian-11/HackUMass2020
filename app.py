@@ -1,8 +1,7 @@
 from flask import Flask, url_for, redirect
 from authlib.integrations.flask_client import OAuth
-from datastax_astra import connect, insert_user
 from flask import Flask
-from datastax_astra import connect, insert_receipt, insert_food
+from datastax_astra import connect, insert_receipt, insert_food, insert_user
 import datetime
 
 app = Flask(__name__)
@@ -60,8 +59,8 @@ def logout():
     return redirect("/")
 
 
-# @app.route("/")
-def ReSpend(img):
+@app.route("/imgtotext")
+def img_to_text(img):
     ### CONNECT TO DATABASE ###
     connect()
 
