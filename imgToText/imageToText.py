@@ -101,9 +101,7 @@ class ImageToText:
         pass
 
 
-text_parse = ImageToText(input_img_path=image_path, local_file=True)
-text_parse.detect_text()
-text_parse.get_text_all()
-
-# if __name__=="__main__":
-#     parser
+if __name__ == "__main__":
+    text_parse = ImageToText(input_img_path=image_path, local_file=True)
+    text_parse.detect_text()
+    text_parse.get_text_all()

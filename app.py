@@ -1,8 +1,9 @@
-from flask import Flask, url_for, redirect
+from flask import Flask, url_for, redirect, jsonify
 from authlib.integrations.flask_client import OAuth
 from flask import Flask
 from datastax_astra import connect, insert_receipt, insert_food, insert_user
 import datetime
+from imgToText.imageToText import ImageToText
 
 app = Flask(__name__)
 app.secret_key = "much secret"
@@ -59,14 +60,27 @@ def logout():
     return redirect("/")
 
 
-@app.route("/imgtotext")
-def img_to_text(img):
+@app.route("/imgtotext/<img>/<user_id>")
+def img_to_text(img, user_id):
+    """Make an API call to /imgtotext/<img>/<user_id> where <img> is a
+    base-64 encoded string and <user_id> is the user's id.
+    This will return a JSON response with the required data.
+    TODO: what should this function exactly return?
+    """
     ### CONNECT TO DATABASE ###
     connect()
 
     ### GET TEXT FROM IMAGE ###
+    # uncomment the next four lines when ImageToText is fixed to handle base-64.
+    # text_parser = ImageToText()
+    # text_parser.set_image_base64(img)
+    # text_parser.detect_text()
+    # result = text_parser.get_text_all()  # TODO: do something with this
 
-    ### STORE INFORMATION INTO DATABASE ###
+    # TODO: move the return to the end of the function
+    return jsonify({"img": img, "user_id": user_id})
+
+    ### TODO: STORE INFORMATION INTO DATABASE ###
 
     # receipt_id: current time
     receipt_id = datetime.datetime.now()
