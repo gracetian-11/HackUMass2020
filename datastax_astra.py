@@ -31,3 +31,5 @@ def connect():
         print(row[0])
     else:
         print("An error occurred.")
+
+    return session
