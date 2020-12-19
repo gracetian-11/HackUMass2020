@@ -92,7 +92,7 @@ class ImageToText:
         pass
 
 
-text_parse = image_to_text(image_path)
+text_parse = ImageToText(image_path)
 text_parse.detect_text()
 text_parse.get_text_all()
 
