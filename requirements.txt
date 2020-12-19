@@ -12,11 +12,8 @@ Flask==1.1.2
 Flask-Bcrypt==0.7.1
 Flask-Login==0.5.0
 geomet==0.2.1.post1
-<<<<<<< HEAD
 google-cloud-language==2.0.0
-=======
 idna==2.10
->>>>>>> e544296736dbb6800afd0eeec6dd2ef6267dd8e1
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1

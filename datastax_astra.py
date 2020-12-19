@@ -7,11 +7,8 @@ cloud_config = {"secure_connect_bundle": "secure-connect-respend.zip"}
 auth_provider = PlainTextAuthProvider("ReSpend", "respend!")
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
 session = cluster.connect("ReSpend")
-<<<<<<< HEAD
-=======
 # session.execute("USE ReSpend;")
 
->>>>>>> e544296736dbb6800afd0eeec6dd2ef6267dd8e1
 
 def connect():
     row = session.execute("select release_version from system.local").one()
