@@ -53,17 +53,17 @@ def insert_food(item, category, total_spent, units, receipt_id, user_id):
 
 
 # users: stores user information
-#     first text, 
+#     first text,
 #     last text,
 #     profile_pic text,
-#     user_id text,
-#     PRIMARY KEY (user_id) 
+#     user_id integer,
+#     PRIMARY KEY (user_id)
 # );
 def insert_user(id, first_name, last_name, profile_pic):
     session.execute(
         """
-        INSERT INTO users (id, first, last, profile_pic, user_id)
-        VALUES (%s, %s, %s, %s, %s)
+        INSERT INTO users (id, first, last, profile_pic)
+        VALUES (%d, %s, %s, %s)
         """,
-        (id, first_name, last_name, profile_pic),
+        (int(id), first_name, last_name, profile_pic),
     )
