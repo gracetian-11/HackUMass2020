@@ -31,8 +31,9 @@ class ImageToText:
         self.image = image
 
     # for directly loading image data
-    def set_image(self, img):
-        self.image = vision.Image(content=img)
+    def set_image_uri(self, img_uri):
+        self.image = vision.Image()
+        self.image.source.image_uri = img_uri
 
     def set_client(self):
         # setup credential and create a vision client
@@ -44,7 +45,7 @@ class ImageToText:
     # detect text from image
     def detect_text(self):
 
-        # more general detection information of each letter and its xy positions in the image
+        # more general detection of each letter and its xy positions in the image
         # The JSON including the entire extracted string, as well as individual words, and their bounding boxes.
         # response = client.text_detection(image=image) #uncomment to use
 
