@@ -22,11 +22,11 @@ google = oauth.register(
 )
 
 
-# @app.route("/")
-# def hello():
-#     connect()
-#     name = session.get("name", None)
-#     return f"Hello {name}"
+@app.route("/")
+def hello():
+    connect()
+    name = session.get("name", None)
+    return f"Hello {name}"
 
 
 @app.route("/login")
@@ -58,14 +58,14 @@ def logout():
     return redirect("/")
 
 
-@app.route("/")
+# @app.route("/")
 def ReSpend(img):
-    ## CONNECT TO DATABASE ##
+    ### CONNECT TO DATABASE ###
     connect()
 
-    ## GET TEXT FROM IMAGE ##
+    ### GET TEXT FROM IMAGE ###
 
-    ## STORE INFORMATION INTO DATABASE ##
+    ### STORE INFORMATION INTO DATABASE ###
 
     # receipt_id: current time
     receipt_id = datetime.datetime.now()
@@ -86,7 +86,7 @@ def ReSpend(img):
 
     insert_receipt(img_blob, id, vendor, total_spent)
 
-    ## RETURN REQUESTED INFO ##
+    ### RETURN REQUESTED INFO ###
 
 
 if __name__ == "__main__":

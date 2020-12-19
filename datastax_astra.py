@@ -48,3 +48,19 @@ def insert_food(item, category, total_spent, units, receipt_id):
     """,
         (item, category, total_spent, units, receipt_id),
     )
+
+
+# user_info: stores user information
+#     id          int,
+#     first_name  text,
+#     last_name   text,
+#     profile_pic text,
+#     PRIMARY KEY (category)
+def insert_user(id, first_name, last_name, profile_pic):
+    session.execute(
+        """
+    INSERT INTO food_items (item, category, total_spent, units, receipt_id)
+    VALUES (%s, %s, %s, %s, %s)
+    """,
+        (item, category, total_spent, units, receipt_id),
+    )
