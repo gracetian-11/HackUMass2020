@@ -21,13 +21,7 @@ google = oauth.register(
     client_kwargs={"scope": "openid email profile"},
 )
 
-
-# @app.route("/")
-# def hello():
-#     connect()
-#     name = session.get("name", None)
-#     return f"Hello {name}"
-
+user_info = ""
 
 @app.route("/login")
 def login():
@@ -43,6 +37,7 @@ def authorize():
     """
     client = oauth.create_client("google")
     token = client.authorize_access_token()
+    global user_info
     user_info = client.get("userinfo").json()
     session["email"] = user_info["email"]
     session["name"] = user_info["name"]
@@ -82,9 +77,9 @@ def ReSpend(img):
     units = 0
     for food in foods:
         total_spent = foods[food]
-        insert_food(food, category, total_spent, units, receipt_id)
+        insert_food(food, category, total_spent, units, receipt_id, user_info["id"])
 
-    insert_receipt(img_blob, id, vendor, total_spent)
+    insert_receipt(img_blob, id, vendor, total_spent, user_info["id"])
 
     ## RETURN REQUESTED INFO ##
 

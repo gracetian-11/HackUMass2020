@@ -22,14 +22,15 @@ def connect():
 #     id timestamp,
 #     vendor text,
 #     total_spent double,
+#     user_id text,
 #     PRIMARY KEY (id)
-def insert_receipt(img, id, vendor, total_spent):
+def insert_receipt(img, id, vendor, total_spent, user_id):
     session.execute(
         """
     INSERT INTO receipts (receipt, id, vendor, total_spent)
     VALUES (%s, %s, %s, %s)
     """,
-        (img, id, vendor, total_spent),
+        (img, id, vendor, total_spent, user_id),
     )
 
 
@@ -39,12 +40,13 @@ def insert_receipt(img, id, vendor, total_spent):
 #     total_spent double,
 #     units double,
 #     receipt_id timestamp,
+#     user_id text,
 #     PRIMARY KEY (category)
-def insert_food(item, category, total_spent, units, receipt_id):
+def insert_food(item, category, total_spent, units, receipt_id, user_id):
     session.execute(
         """
     INSERT INTO food_items (item, category, total_spent, units, receipt_id)
     VALUES (%s, %s, %s, %s, %s)
     """,
-        (item, category, total_spent, units, receipt_id),
+        (item, category, total_spent, units, receipt_id, user_id),
     )
