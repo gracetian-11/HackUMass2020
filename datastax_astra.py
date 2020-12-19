@@ -7,6 +7,11 @@ cloud_config = {"secure_connect_bundle": "secure-connect-respend.zip"}
 auth_provider = PlainTextAuthProvider("ReSpend", "respend!")
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
 session = cluster.connect("ReSpend")
+<<<<<<< HEAD
+=======
+# session.execute("USE ReSpend;")
+
+>>>>>>> e544296736dbb6800afd0eeec6dd2ef6267dd8e1
 
 def connect():
     row = session.execute("select release_version from system.local").one()
@@ -55,14 +60,15 @@ def insert_food(item, category, total_spent, units, receipt_id, user_id):
 #     first text,
 #     last text,
 #     profile_pic text,
-#     user_id integer,
+#     user_id text,
 #     PRIMARY KEY (user_id)
 # );
 def insert_user(id, first_name, last_name, profile_pic):
     session.execute(
         """
-        INSERT INTO users (id, first, last, profile_pic)
-        VALUES (%d, %s, %s, %s)
+        INSERT INTO users (user_id, first, last, profile_pic)
+        VALUES (%s, %s, %s, %s)
+        IF NOT EXISTS
         """,
-        (int(id), first_name, last_name, profile_pic),
+        (id, first_name, last_name, profile_pic),
     )
