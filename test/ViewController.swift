@@ -6,35 +6,20 @@
 //
 
 import UIKit
+import Charts
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
-    let pieChartView = PieChartView()
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var header: UILabel!
     var userName: String?
+    @IBOutlet weak var pieView: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         header.text = userName
-        
-        let padding: CGFloat = 20
-        let height = (view.frame.height - padding * 3) / 2
-
-            pieChartView.frame = CGRect(
-                x: 0, y: padding*22.5, width: view.frame.size.width, height: height
-            )
-            pieChartView.segments = [
-              LabelledSegment(color: #colorLiteral(red: 1.0, green: 0.121568627, blue: 0.28627451, alpha: 1.0), name: "Red",        value: 57.56),
-              LabelledSegment(color: #colorLiteral(red: 1.0, green: 0.541176471, blue: 0.0, alpha: 1.0), name: "Orange",     value: 30),
-              LabelledSegment(color: #colorLiteral(red: 0.478431373, green: 0.423529412, blue: 1.0, alpha: 1.0), name: "Purple",     value: 27),
-              LabelledSegment(color: #colorLiteral(red: 0.0, green: 0.870588235, blue: 1.0, alpha: 1.0), name: "Light Blue", value: 40),
-              LabelledSegment(color: #colorLiteral(red: 0.392156863, green: 0.945098039, blue: 0.717647059, alpha: 1.0), name: "Green",      value: 25),
-              LabelledSegment(color: #colorLiteral(red: 0.0, green: 0.392156863, blue: 1.0, alpha: 1.0), name: "Blue",       value: 38)
-            ]
-            pieChartView.segmentLabelFont = .systemFont(ofSize: 10)
-            view.addSubview(pieChartView)
+        setupPieChart()
         
         // Enable UITapGestureRecognizer on image
         photoImageView.isUserInteractionEnabled = true
@@ -63,6 +48,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //MARK: Actions
+    func setupPieChart() {
+        pieView.chartDescription?.enabled = false   // Sets title = false
+        pieView.drawHoleEnabled = false // true if donut chart, false if pie chart
+        pieView.rotationAngle = 0
+        pieView.rotationEnabled = false
+        pieView.isUserInteractionEnabled = false    // true allows users to see more detailed information upon tapping
+        pieView.legend.enabled = false // true enables legend
+        
+        var entries: [PieChartDataEntry] = Array()
+        entries.append(PieChartDataEntry(value: 50.0, label: "Takeout"))   // value = angle
+        entries.append(PieChartDataEntry(value: 30.0, label: "Healthy Food"))
+        entries.append(PieChartDataEntry(value: 20.0, label: "Soft Drink"))
+        entries.append(PieChartDataEntry(value: 10.0, label: "Water"))
+        entries.append(PieChartDataEntry(value: 40.0, label: "Home Meals"))
+        
+        let dataSet = PieChartDataSet(entries: entries, label: "")
+                
+        let c1 = NSUIColor(hex: 0x3A015C)   // purple
+        let c2 = NSUIColor(hex: 0x4F0147)
+        let c3 = NSUIColor(hex: 0x35012C)
+        let c4 = NSUIColor(hex: 0x290025)
+        let c5 = NSUIColor(hex: 0x11001C)
+    
+        dataSet.colors = [c1, c2, c3, c4, c5] // order passed in = order placed into entries array
+        dataSet.drawValuesEnabled = false
+        
+        pieView.data = PieChartData(dataSet: dataSet)
+    }
+    
     @IBAction func submitButton(_ sender: UIButton) {
         // TODO: Show text saying "submitting"
         // TODO: Submit photo to backend

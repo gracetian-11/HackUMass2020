@@ -99,6 +99,13 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="9ox-wX-BOo">
                                         <rect key="frame" x="0.0" y="411.5" width="414" height="370"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0j-dp-N5E" customClass="GIDSignInButton">
+                                                <rect key="frame" x="87" y="35" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iKI-Cc-bpc">
@@ -136,6 +143,7 @@
                     </view>
                     <connections>
                         <outlet property="emailAddress" destination="1T8-dP-t8U" id="W89-qP-Ub3"/>
+                        <outlet property="signInButton" destination="M0j-dp-N5E" id="TnB-P0-fpM"/>
                         <segue destination="Sdh-km-vhr" kind="show" identifier="goToMainStoryboard" id="3hK-OI-sc6"/>
                     </connections>
                 </viewController>

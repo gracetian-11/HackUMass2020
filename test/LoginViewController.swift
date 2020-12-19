@@ -6,22 +6,33 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
     // MARK: Properties
     @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+          // ...
+        
         // Do any additional setup after loading the view.
     }
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+      GIDSignIn.sharedInstance().signOut()
+    }
     // Segue into ViewController when continue button is pressed
-    @IBAction func continueButton(_ sender: UIButton) {
+    @IBAction func continueButton(_ sender: Any) {
         performSegue(withIdentifier: "goToMainStoryboard", sender: self)
     }
     
