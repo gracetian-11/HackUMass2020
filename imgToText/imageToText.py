@@ -35,12 +35,16 @@ class ImageToText:
         self.image = vision.Image()
         self.image.source.image_uri = img_uri
 
+    # set image to the base-64 string img_b64
+    def set_image_base64(self, img_b64: str) -> None:
+        """TODO: yeah this."""
+
     def set_client(self):
         # setup credential and create a vision client
         # TODO: make sure to update this to match the path of gcp credential file
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hackumass2020-e3653d7fe8eb.json"
 
-        client = vision.ImageAnnotatorClient()
+        self.client = vision.ImageAnnotatorClient()
 
     # detect text from image
     def detect_text(self):
@@ -52,7 +56,9 @@ class ImageToText:
         # ====== this seems to work better with receipts, since it recognize line and spacing better.
         # Optimized for dense text and documents.
         # The JSON includes page, block, paragraph, word, and break information.
-        response = client.document_text_detection(image=self.image)  # uncomment to use
+        response = self.client.document_text_detection(
+            image=self.image
+        )  # uncomment to use
 
         # display the text detected.
         # print("Texts:")
@@ -94,8 +100,8 @@ class ImageToText:
     def get_text_single(self):
         pass
 
-text_parse = image_to_text(input_img_path = image_path, local_file=True)
-=======
+
+text_parse = ImageToText(input_img_path=image_path, local_file=True)
 text_parse.detect_text()
 text_parse.get_text_all()
 
