@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D470DF0D258D2C090018FB5E /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470DF0C258D2C090018FB5E /* RatingControl.swift */; };
 		D470DF35258D84760018FB5E /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470DF34258D84760018FB5E /* PieChartView.swift */; };
+		D470DF3D258D8C160018FB5E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470DF3C258D8C160018FB5E /* LoginViewController.swift */; };
+		D470DF4A258D9C350018FB5E /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D470DF49258D9C350018FB5E /* LoginScreen.storyboard */; };
+		D470DF63258DA42C0018FB5E /* logoPhoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D470DF62258DA42C0018FB5E /* logoPhoto.jpeg */; };
 		D49043C9258C598C0077F596 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49043C8258C598C0077F596 /* AppDelegate.swift */; };
 		D49043CB258C598C0077F596 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49043CA258C598C0077F596 /* SceneDelegate.swift */; };
 		D49043CD258C598C0077F596 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49043CC258C598C0077F596 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		D470DF0C258D2C090018FB5E /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		D470DF34258D84760018FB5E /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		D470DF3C258D8C160018FB5E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D470DF49258D9C350018FB5E /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
+		D470DF62258DA42C0018FB5E /* logoPhoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logoPhoto.jpeg; path = ../../logoPhoto.jpeg; sourceTree = "<group>"; };
 		D49043C5258C598C0077F596 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49043C8258C598C0077F596 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D49043CA258C598C0077F596 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,13 +111,16 @@
 			children = (
 				D49043C8258C598C0077F596 /* AppDelegate.swift */,
 				D49043CA258C598C0077F596 /* SceneDelegate.swift */,
+				D470DF3C258D8C160018FB5E /* LoginViewController.swift */,
 				D49043CC258C598C0077F596 /* ViewController.swift */,
 				D470DF0C258D2C090018FB5E /* RatingControl.swift */,
 				D470DF34258D84760018FB5E /* PieChartView.swift */,
+				D49043D3258C59930077F596 /* LaunchScreen.storyboard */,
+				D470DF49258D9C350018FB5E /* LoginScreen.storyboard */,
 				D49043CE258C598C0077F596 /* Main.storyboard */,
 				D49043D1258C59930077F596 /* Assets.xcassets */,
-				D49043D3258C59930077F596 /* LaunchScreen.storyboard */,
 				D49043D6258C59930077F596 /* Info.plist */,
+				D470DF62258DA42C0018FB5E /* logoPhoto.jpeg */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -239,6 +248,8 @@
 			files = (
 				D49043D5258C59930077F596 /* LaunchScreen.storyboard in Resources */,
 				D49043D2258C59930077F596 /* Assets.xcassets in Resources */,
+				D470DF4A258D9C350018FB5E /* LoginScreen.storyboard in Resources */,
+				D470DF63258DA42C0018FB5E /* logoPhoto.jpeg in Resources */,
 				D49043D0258C598C0077F596 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D470DF3D258D8C160018FB5E /* LoginViewController.swift in Sources */,
 				D470DF0D258D2C090018FB5E /* RatingControl.swift in Sources */,
 				D470DF35258D84760018FB5E /* PieChartView.swift in Sources */,
 				D49043CD258C598C0077F596 /* ViewController.swift in Sources */,
