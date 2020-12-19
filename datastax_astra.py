@@ -6,8 +6,7 @@ from cassandra.auth import PlainTextAuthProvider
 cloud_config = {"secure_connect_bundle": "secure-connect-respend.zip"}
 auth_provider = PlainTextAuthProvider("ReSpend", "respend!")
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
-session = cluster.connect()
-
+session = cluster.connect("ReSpend")
 
 def connect():
     row = session.execute("select release_version from system.local").one()
