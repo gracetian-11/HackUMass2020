@@ -6,49 +6,91 @@ import os
 # seems to able to read in jpg fine
 image_path = "test_r1.jpg"
 
-# get text from local image file
-def detect_text(path):
+class image_to_text:
+    def __init__(self, input_img_path = None, imput_img = None, local_file = True):
+        self.image = None
+        if local_file:
+            self.set_image_local(input_img_path)
+        else: 
+            self.set_image(input_img)
+        self.texts = []
     
-    # setup credential and create a vision client
-    # TODO: make sure to update this to match the path of gcp credential file
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'hackumass2020-e3653d7fe8eb.json'
+    def get_image(self):
+        return self.image
+
+    # for local image file
+    def set_image_local(self, path):
+        # path to image file
+        with io.open(path, 'rb') as image_file:
+            content = image_file.read()
+        # pass image to be readable by the viison client, base-64 encoded form data
+        image = vision.Image(content=content)
+        self.image = image
     
-    client = vision.ImageAnnotatorClient()
+    # for directly loading image data
+    def set_image(self, img):
+        self.image = vision.Image(content=img)
+
+    # detect text from image
+    def detect_text(self):
+        
+        # setup credential and create a vision client
+        # TODO: make sure to update this to match the path of gcp credential file
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'hackumass2020-e3653d7fe8eb.json'
+        
+        client = vision.ImageAnnotatorClient()
+        
+        # more general detection information of each letter and its xy positions in the image
+        # The JSON including the entire extracted string, as well as individual words, and their bounding boxes.
+        # response = client.text_detection(image=image) #uncomment to use
+
+        # ====== this seems to work better with receipts, since it recognize line and spacing better.
+        # Optimized for dense text and documents. 
+        # The JSON includes page, block, paragraph, word, and break information.
+        response = client.document_text_detection(image=self.image) #uncomment to use
+
+        # display the text detected. 
+        # print("Texts:")
+        texts = response.text_annotations  # dict of the whole text + each words in text
+        # print(texts)
+        for text in texts:
+            # print('\n"{}"'.format(text.description))
+            self.texts.append(text.description)
+
+            # to get the xy position for the given word if uses client.text_detection()
+            # vertices = (['({},{})'.format(vertex.x, vertex.y)
+            #             for vertex in text.bounding_poly.vertices])
+
+            # print('bounds: {}'.format(','.join(vertices)))
+        # print(self.texts)
+
+
+        if response.error.message:
+            raise Exception(
+                '{}\nFor more info on error messages, check: '
+                'https://cloud.google.com/apis/design/errors'.format(
+                    response.error.message))
+
+    def get_text_all(self):
+        '''
+        get all the text that has been detected from the image
+        return:
+        text = list if text parsed per line
+        '''
+        # get the whole string from self.texts
+        bulk_text = self.texts[0] 
+        print(bulk_text)
+        linetext = bulk_text.splitlines()
+        print(linetext)
+        return linetext
     
-    # path to image file
-    with io.open(path, 'rb') as image_file:
-        content = image_file.read()
-    # pass image to be readable by the viison client, base-64 encoded form data
-    image = vision.Image(content=content)
-    # the response contain detection information of each letter and its xy positions in the image
-    # returns a nested dict. from blocks -> words -> symbols(characters).
-    # along with annotated text.
-    response = client.text_detection(image=image)
-    
-    # display the text detected. 
-    print("Texts:")
-    # TODO: result doesn't group the text in the same line right.  Seems to be issue with how space or tab-space being view as line-break
-    texts = response.text_annotations  # dict of the whole text + each words in text
-    # print(texts)
-    for text in texts:
-        print('\n"{}"'.format(text.description))
+    # not sure if needed yet
+    def get_text_single(self):
+        pass
 
-        # to get the xy position for the given word
-        # vertices = (['({},{})'.format(vertex.x, vertex.y)
-        #             for vertex in text.bounding_poly.vertices])
-
-        # print('bounds: {}'.format(','.join(vertices)))
-
-    if response.error.message:
-        raise Exception(
-            '{}\nFor more info on error messages, check: '
-            'https://cloud.google.com/apis/design/errors'.format(
-                response.error.message))
-
-
-
-
-detect_text(image_path)
+text_parse = image_to_text(image_path)
+text_parse.detect_text()
+text_parse.get_text_all()
 
 # if __name__=="__main__":
 #     parser 
