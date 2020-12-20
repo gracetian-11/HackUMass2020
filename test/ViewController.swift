@@ -13,12 +13,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: Properties
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var header: UILabel!
-    var userName: String?
     @IBOutlet weak var pieView: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        header.text = userName
+        header.text = "Welcome Back!"
         setupPieChart()
         
         // Enable UITapGestureRecognizer on image
@@ -75,6 +74,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dataSet.drawValuesEnabled = false
         
         pieView.data = PieChartData(dataSet: dataSet)
+    }
+    // Segue into LoginViewController when Back button is pressed
+    @IBAction func backButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToLoginScreen", sender: self)
     }
     
     @IBAction func submitButton(_ sender: UIButton) {
