@@ -4,7 +4,6 @@
 //
 //  Created by kerry lu on 12/17/20.
 //
-
 import UIKit
 import Charts
 
@@ -13,12 +12,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: Properties
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var header: UILabel!
-    var userName: String?
     @IBOutlet weak var pieView: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        header.text = userName
+        header.text = "Welcome Back!"
         setupPieChart()
         
         // Enable UITapGestureRecognizer on image
@@ -76,6 +74,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         pieView.data = PieChartData(dataSet: dataSet)
     }
+    // Segue into LoginViewController when Back button is pressed
+    @IBAction func backButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToLoginScreen", sender: self)
+    }
     
     @IBAction func submitButton(_ sender: UIButton) {
         // TODO: Show text saying "submitting"
@@ -95,4 +97,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePickerController, animated: true, completion: nil)
     }
 }
-

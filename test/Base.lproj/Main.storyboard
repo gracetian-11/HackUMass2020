@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="VC" id="BYZ-38-t0r" customClass="ViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="test" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +66,9 @@
                                                     <constraint firstAttribute="height" constant="20.5" id="97w-t0-XbL"/>
                                                 </constraints>
                                                 <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ndK-TH-NWH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -90,11 +93,22 @@
                         <outlet property="header" destination="hpc-I8-3ca" id="GDj-wv-Wba"/>
                         <outlet property="photoImageView" destination="xxi-Rg-xIW" id="j7b-Eo-gY7"/>
                         <outlet property="pieView" destination="g1T-dJ-lE8" id="qEC-LB-hdl"/>
+                        <segue destination="MWW-8J-TK0" kind="show" identifier="goToLoginScreen" id="fd2-nW-Had"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-113.04347826086958" y="0.6696428571428571"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="QPJ-EF-Mcn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginScreen" referencedIdentifier="LoginViewController" id="MWW-8J-TK0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gAb-F7-nRI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHm-n6-ExX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="488" y="-107"/>
         </scene>
     </scenes>
     <resources>
