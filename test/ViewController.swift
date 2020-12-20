@@ -13,6 +13,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var pieView: PieChartView!
+    // TODO: Pull var values from backend
+    var d1 = 60.0
+    var d2 = 60.0
+    var d3 = 60.0
+    var d4 = 60.0
+    var d5 = 60.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +61,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pieView.legend.enabled = false // true enables legend
         
         var entries: [PieChartDataEntry] = Array()
-        entries.append(PieChartDataEntry(value: 50.0, label: "Takeout"))   // value = angle
-        entries.append(PieChartDataEntry(value: 30.0, label: "Healthy Food"))
-        entries.append(PieChartDataEntry(value: 20.0, label: "Soft Drink"))
-        entries.append(PieChartDataEntry(value: 10.0, label: "Water"))
-        entries.append(PieChartDataEntry(value: 40.0, label: "Home Meals"))
+        
+        var backend:[String:Double] = [:]
+        
+        let s1 = "Takeout"
+        let s2 = "Healthy Food"
+        let s3 = "Soft Drink"
+        let s4 = "Water"
+        let s5 = "Home Meals"
+        
+        backend[s1] = d1
+        backend[s2] = d2
+        backend[s3] = d3
+        backend[s4] = d4
+        backend[s5] = d5
+        
+        for (key, value) in backend {
+            entries.append(PieChartDataEntry(value: (value), label: (key)))
+        }
         
         let dataSet = PieChartDataSet(entries: entries, label: "")
                 

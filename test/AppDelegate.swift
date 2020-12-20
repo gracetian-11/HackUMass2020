@@ -9,7 +9,9 @@ import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    //MARK: Properties
     var window: UIWindow?
+    let appDelegate = UIApplication.shared.delegate
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
@@ -43,25 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "251887149747-1u3p4djlpl976d48cphlqspd2en1omcs.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         /* check for user's token */
         if GIDSignIn.sharedInstance().hasPreviousSignIn() {
-            /* Code to show your tab bar controller */
+            /* Code to show your main view controller */
             print("user is signed in")
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = sb.instantiateViewController(withIdentifier: "ViewController") as? ViewController {
-                // window!.rootViewController = vc
-            }
+            self.showViewController()
         } else {
             print("user is NOT signed in")
             /* code to show your login VC */
-            let sb = UIStoryboard(name: "LoginScreen", bundle: nil)
-            if let vc = sb.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                window!.rootViewController = vc
-            }
+            self.showLoginViewController()
         }
     return true
     }
@@ -74,8 +70,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
       return GIDSignIn.sharedInstance().handle(url)
     }
-
-    // MARK: UISceneSession Lifecycle
+    //MARK: Actions
+    private func showViewController() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller: UIViewController =
+            storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        if self.window == nil {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+        }
+        self.window?.backgroundColor = UIColor.white
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+        }
+    private func showLoginViewController() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+        let controller: UIViewController =
+            storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        if self.window == nil {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+        }
+        self.window?.backgroundColor = UIColor.white
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+        }
+    
+    //MARK: UISceneSession Lifecycle
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
