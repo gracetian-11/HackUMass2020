@@ -1,10 +1,11 @@
 import os
 from google.cloud import documentai_v1beta3 as documentai
-
-project_id= 'respend'
+# https://us-documentai.googleapis.com/v1beta3/projects/457995383238/locations/us/processors/3f0d1ab7f53ab145:process # hackumass2020 project
+# https://us-documentai.googleapis.com/v1beta3/projects/251887149747/locations/us/processors/b59cbc5119e37d4e #respend project
+project_id= '457995383238'
 location = 'us' # Format is 'us' or 'eu'
-processor_id = 'b59cbc5119e37d4e' # Create processor in Cloud Console
-file_path = './receipt_parser/test_receipt.pdf'
+processor_id = '3f0d1ab7f53ab145' # Create processor in Cloud Console
+file_path = '..\imgToText\\test_r1.pdf'
 
 def process_document_sample(
     project_id: str, location: str, processor_id: str, file_path: str
@@ -16,9 +17,8 @@ def process_document_sample(
     # The full resource name of the processor, e.g.:
     # projects/project-id/locations/location/processor/processor-id
     # You must create new processors in the Cloud Console first
-
-    # https://us-documentai.googleapis.com/v1beta3/projects/251887149747/locations/us/processors/b59cbc5119e37d4e:process 
-    name = f"projects/{project_id}/locations/{location}/processors/{processor_id}"
+ 
+    name = "projects/{}/locations/{}/processors/{}".format(project_id, location, processor_id)
 
     with open(file_path, "rb") as image:
         image_content = image.read()
@@ -69,10 +69,11 @@ def get_text(doc_element: dict, document: dict):
         response += document.text[start_index:end_index]
     return response
 
+
 def set_client():
     # setup credential and create a vision client
     # TODO: make sure to update this to match the path of gcp credential file
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/gracetian/Desktop/ReSpend/respend-9a49e28166f6.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "..\imgToText\hackumass2020-e3653d7fe8eb.json"
 
     client = documentai.DocumentProcessorServiceClient()
     return client
