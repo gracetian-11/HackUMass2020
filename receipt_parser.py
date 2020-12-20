@@ -5,7 +5,7 @@ from google.cloud import documentai_v1beta3 as documentai
 project_id= '457995383238'
 location = 'us' # Format is 'us' or 'eu'
 processor_id = '3f0d1ab7f53ab145' # Create processor in Cloud Console
-file_path = '..\imgToText\\test_r1.pdf'
+file_path = '\receipts\contoso.jpeg'
 
 def process_document_sample(
     project_id: str, location: str, processor_id: str, file_path: str
@@ -73,7 +73,7 @@ def get_text(doc_element: dict, document: dict):
 def set_client():
     # setup credential and create a vision client
     # TODO: make sure to update this to match the path of gcp credential file
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "..\imgToText\hackumass2020-e3653d7fe8eb.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "\authentications\hackumass2020-e3653d7fe8eb.json"
 
     client = documentai.DocumentProcessorServiceClient()
     return client
