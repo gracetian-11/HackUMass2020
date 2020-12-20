@@ -32,7 +32,7 @@ def classify(text, verbose=True):
             print(u"=" * 20)
             print(u"{:<16}: {}".format("category", category.name))
             print(u"{:<16}: {}".format("confidence", category.confidence))
-    print("HELLO" + result)
+
     return result
 
 if __name__ == "__main__":
@@ -66,3 +66,4 @@ if __name__ == "__main__":
     www.facebook.com/Walmart
     09/01/12 14:16:00
     """)
+    classify("iced tea")

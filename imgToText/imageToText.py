@@ -5,7 +5,7 @@ import os
 # import argparse
 
 # seems to able to read in jpg fine
-image_path = "test_r1.jpg"
+image_path = "./imgToText/test_receipt.jpeg"
 
 
 class ImageToText:
@@ -42,7 +42,7 @@ class ImageToText:
     def set_client(self):
         # setup credential and create a vision client
         # TODO: make sure to update this to match the path of gcp credential file
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hackumass2020-e3653d7fe8eb.json"
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "imgToText/hackumass2020-e3653d7fe8eb.json"
 
         self.client = vision.ImageAnnotatorClient()
 

@@ -17,8 +17,10 @@ def process_document_sample(
     # projects/project-id/locations/location/processor/processor-id
     # You must create new processors in the Cloud Console first
 
-    # https://us-documentai.googleapis.com/v1beta3/projects/251887149747/locations/us/processors/b59cbc5119e37d4e:process 
+    # https://us-documentai.googleapis.com/v1beta3/projects/respend/locations/us/processors/b59cbc5119e37d4e:process 
     name = f"projects/{project_id}/locations/{location}/processors/{processor_id}"
+    name = '//us-documentai.googleapis.com/projects/respend/locations/us/processors/b59cbc5119e37d4e'
+    print(name)
 
     with open(file_path, "rb") as image:
         image_content = image.read()
@@ -72,8 +74,7 @@ def get_text(doc_element: dict, document: dict):
 def set_client():
     # setup credential and create a vision client
     # TODO: make sure to update this to match the path of gcp credential file
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/gracetian/Desktop/ReSpend/respend-9a49e28166f6.json"
-
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/gracetian/Desktop/ReSpend/respend-10d8ff634131.json"
     client = documentai.DocumentProcessorServiceClient()
     return client
 
